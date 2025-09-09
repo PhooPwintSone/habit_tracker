@@ -1,0 +1,246 @@
+// lib/main.dart
+// ------------------------------------------------------------
+// Project 1: Profile Card App (Layouts & Widgets)
+// ------------------------------------------------------------
+// What you'll practice:
+// - Row, Column, Padding, SizedBox, Wrap
+// - Card, ListTile, CircleAvatar
+// - Building clean, responsive-ish layouts
+// How to use:
+// 1) Create a Flutter project: flutter create profile_card
+// 2) Replace lib/main.dart with this file.
+// 3) flutter run
+// Optional: Switch avatar to an asset image (see bottom snippet).
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Profile Card',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        useMaterial3: true,
+      ),
+      home: const ProfilePage(),
+    );
+  }
+}
+
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Profile Card'), centerTitle: true),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: const [
+                _Header(),
+                SizedBox(height: 16),
+                _ContactCard(
+                  icon: Icons.phone,
+                  label: 'Phone',
+                  value: '+95 9 123 456 789',
+                ),
+                SizedBox(height: 8),
+                _ContactCard(
+                  icon: Icons.email,
+                  label: 'Email',
+                  value: 'thet@example.com',
+                ),
+                SizedBox(height: 16),
+                Divider(),
+                SizedBox(height: 16),
+                _StatsSection(),
+                SizedBox(height: 16),
+                _SkillsSection(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  const _Header();
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Column(
+      children: [
+        const CircleAvatar(
+          radius: 56,
+          backgroundImage: AssetImage('assets/images/profile-2.jpg'),
+          backgroundColor: Colors.transparent,
+        ),
+        const SizedBox(height: 12),
+        Text(
+          'Phoo Pwint Sone',
+          style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Flutter Developer',
+          style: textTheme.titleMedium?.copyWith(color: Colors.black54),
+        ),
+      ],
+    );
+  }
+}
+
+class _ContactCard extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+  const _ContactCard({
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      surfaceTintColor: Colors.transparent,
+      child: ListTile(
+        leading: Icon(icon),
+        title: Text(value),
+        subtitle: Text(label),
+      ),
+    );
+  }
+}
+
+class _StatsSection extends StatelessWidget {
+  const _StatsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const [
+        Row(
+          children: [
+            Expanded(
+              child: _StatCard(title: 'Projects', value: '12'),
+            ),
+            SizedBox(width: 12),
+            Expanded(
+              child: _StatCard(title: 'Followers', value: '1.2K'),
+            ),
+          ],
+        ),
+        SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: _StatCard(title: 'Experience', value: '3 yrs'),
+            ),
+            SizedBox(width: 12),
+            Expanded(
+              child: _StatCard(title: 'Location', value: 'Yangon'),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _StatCard extends StatelessWidget {
+  final String title;
+  final String value;
+  const _StatCard({required this.title, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Card(
+      elevation: 0,
+      color: cs.primaryContainer.withValues(alpha: 100),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        child: Column(
+          children: [
+            Text(
+              value,
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              title,
+              style: Theme.of(
+                context,
+              ).textTheme.labelLarge?.copyWith(color: Colors.black54),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SkillsSection extends StatelessWidget {
+  const _SkillsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final skills = ['Flutter', 'Dart', 'REST', 'Git', 'UI/UX'];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Skills',
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: skills.map((s) => Chip(label: Text(s))).toList(),
+        ),
+      ],
+    );
+  }
+}
+
+// ------------------------------------------------------------
+// Optional: Use a local asset image for the avatar
+// ------------------------------------------------------------
+// 1) Put an image at: assets/images/profile.jpg
+// 2) In pubspec.yaml, add:
+//
+// flutter:
+//   assets:
+//     - assets/images/profile.jpg
+//
+// 3) Then replace the CircleAvatar backgroundImage with:
+//    backgroundImage: const AssetImage('assets/images/profile.jpg'),
+
+// ------------------------------------------------------------
+// Practice ideas:
+// - Replace hard-coded data with your info.
+// - Add social icons row (GitHub, LinkedIn) with IconButtons.
+// - Make a gradient header: Container(height: 140, decoration: BoxDecoration(gradient: ...)).
+// - Turn stats into a GridView.count(crossAxisCount: 2).
+// - Create a second screen and navigate to it from an "About" button.
