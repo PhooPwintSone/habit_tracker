@@ -1,16 +1,26 @@
-# profile_card
+# 🌱 Habit Tracker App
 
-A new Flutter project.
+A simple and cute Flutter habit tracker app to build consistency every day.  
+Track your habits, see streaks, measure progress, and switch between months to review your history.  
+Supports multiple color themes 🌿🌸💙🌙 and dark mode.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- ✅ Add, edit, and delete habits  
+- ✅ Track daily progress with a calendar view  
+- ✅ Current streaks 🔥 & monthly completion %  
+- ✅ Navigate between months & years to see history  
+- ✅ Multiple color themes (Green, Pink, Blue, Dark)  
+- ✅ Dark mode support 🌙  
+- ✅ Data saved locally (using SharedPreferences)
+- 
+-----
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Getting Started
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 1. Clone the repo
+```bash
+git clone[ https://github.com//habit-tracker.git](https://github.com/PhooPwintSone/habit_tracker)
+cd habit-tracker
