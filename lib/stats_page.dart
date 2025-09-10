@@ -72,7 +72,7 @@ class StatsPage extends StatelessWidget {
           const SizedBox(height: 12),
           LinearProgressIndicator(
             value: percent,
-            backgroundColor: cs.surfaceVariant,
+            backgroundColor: cs.surfaceContainerHighest,
             valueColor: AlwaysStoppedAnimation<Color>(cs.primary),
             minHeight: 10,
             borderRadius: BorderRadius.circular(12),
@@ -107,7 +107,7 @@ class StatsPage extends StatelessWidget {
                     title: Text(habit["name"]),
                     subtitle: LinearProgressIndicator(
                       value: percent,
-                      backgroundColor: cs.surfaceVariant,
+                      backgroundColor: cs.surfaceContainerHighest,
                       valueColor: AlwaysStoppedAnimation<Color>(cs.secondary),
                       minHeight: 8,
                     ),

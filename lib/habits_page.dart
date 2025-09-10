@@ -191,7 +191,6 @@ class _HabitsPageState extends State<HabitsPage> {
                               ? cs.onPrimary
                               : cs.onSurface;
 
-                          // inside GridView.builder itemBuilder
                           return GestureDetector(
                             onTap: isFuture
                                 ? null
@@ -199,7 +198,7 @@ class _HabitsPageState extends State<HabitsPage> {
                                     index,
                                     dayIndex,
                                     _viewDate,
-                                  ), // ✅ pass viewDate
+                                  ),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: bg,
@@ -242,7 +241,7 @@ class _HabitsPageState extends State<HabitsPage> {
                         borderRadius: BorderRadius.circular(10),
                         child: LinearProgressIndicator(
                           value: progress.clamp(0.0, 1.0),
-                          backgroundColor: cs.surfaceVariant,
+                          backgroundColor: cs.surfaceContainerHighest,
                           valueColor: AlwaysStoppedAnimation<Color>(cs.primary),
                           minHeight: 8,
                         ),

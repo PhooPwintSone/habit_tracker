@@ -81,7 +81,7 @@ ThemeData _buildGreenTheme() {
     useMaterial3: true,
     colorScheme: scheme.copyWith(
       surface: const Color(0xFFCCEDE7),
-      surfaceVariant: const Color(0xFF89C8CC),
+      surfaceContainerHighest: const Color(0xFF89C8CC),
     ),
     scaffoldBackgroundColor: const Color(0xFFCCEDE7),
     appBarTheme: const AppBarTheme(
@@ -115,7 +115,7 @@ ThemeData _buildPinkTheme() {
       foregroundColor: scheme.onPrimary,
     ),
     cardTheme: CardThemeData(
-      color: scheme.surfaceVariant,
+      color: scheme.surfaceContainerHighest,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       elevation: 3,
     ),
@@ -139,7 +139,7 @@ ThemeData _buildBlueTheme() {
       foregroundColor: scheme.onPrimary,
     ),
     cardTheme: CardThemeData(
-      color: scheme.surfaceVariant,
+      color: scheme.surfaceContainerHighest,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       elevation: 3,
     ),

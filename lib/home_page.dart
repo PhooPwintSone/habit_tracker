@@ -59,14 +59,25 @@ class _HomePageState extends State<HomePage> {
     await HabitStorage.save(_habits);
   }
 
-  void _toggleDay(int habitIndex, int dayIndex, DateTime date) async {
+  void _toggleDay(int habitIndex, int dayIndex, DateTime viewDate) async {
+    final key = "${viewDate.year}-${viewDate.month.toString().padLeft(2, '0')}";
+
     setState(() {
-      final days = _habits[habitIndex]["days"] as List<bool>;
-      if (dayIndex >= days.length) {
-        days.addAll(List<bool>.filled(dayIndex - days.length + 1, false));
+      _habits[habitIndex]["history"] ??= {};
+      final history = _habits[habitIndex]["history"];
+
+      final daysInMonth = DateTime(viewDate.year, viewDate.month + 1, 0).day;
+
+      // if this month doesn't exist, create it
+      if (history[key] == null) {
+        history[key] = List<bool>.filled(daysInMonth, false);
       }
+
+      final List<bool> days = List<bool>.from(history[key]);
       days[dayIndex] = !days[dayIndex];
+      history[key] = days;
     });
+
     await HabitStorage.save(_habits);
   }
 
