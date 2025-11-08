@@ -60,7 +60,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _toggleDay(int habitIndex, int dayIndex, DateTime viewDate) async {
-    final key = "${viewDate.year}-${viewDate.month.toString().padLeft(2, '0')}";
+    final String key =
+        "${viewDate.year}-${viewDate.month.toString().padLeft(2, '0')}";
 
     setState(() {
       _habits[habitIndex]["history"] ??= {};
