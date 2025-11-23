@@ -1,26 +1,41 @@
-# 🌱 Habit Tracker App
+# Habito – Flutter Habit Tracker Template
 
-A simple and cute Flutter habit tracker app to build consistency every day.  
-Track your habits, see streaks, measure progress, and switch between months to review your history.  
-Supports multiple color themes 🌿🌸💙🌙 and dark mode.
+Habito is a clean and modern Flutter Habit Tracker Template built for developers
+who want a simple, ready-to-use solution. The template includes unlimited habits,
+daily check-ins, calendar views, monthly streaks, multiple themes, and Hive
+local storage—all inside a clean and easy-to-understand codebase.
+
+This template does not use complex folder architecture.  
+All core features are implemented inside a few organized Dart files:
+- main.dart
+- home_page.dart
+- habit_page.dart
+- habit_storage.dart
+- stats_page.dart
+
+Perfect for beginners and indie developers who want a fast and functional starting point.
 
 ---
 
-## ✨ Features
+## Files Overview
 
-- ✅ Add, edit, and delete habits  
-- ✅ Track daily progress with a calendar view  
-- ✅ Current streaks 🔥 & monthly completion %  
-- ✅ Navigate between months & years to see history  
-- ✅ Multiple color themes (Green, Pink, Blue, Dark)  
-- ✅ Dark mode support 🌙  
-- ✅ Data saved locally (using SharedPreferences)
-- 
------
+| File | Purpose |
+|------|---------|
+| main.dart | App entry point, theme setup, navigation |
+| home_page.dart | Habit list UI, add habit, daily check-in |
+| habit_page.dart | Calendar view, streak display, habit details |
+| habit_storage.dart | All Hive storage logic |
+| stats_page.dart | Progress and statistics UI |
 
-## 🚀 Getting Started
+---
 
-### 1. Clone the repo
-```bash
-git clone[ https://github.com//habit-tracker.git](https://github.com/PhooPwintSone/habit_tracker)
-cd habit-tracker
+## Features
+
+- Add unlimited habits  
+- Daily check-in (today and past dates only)  
+- Monthly calendar view  
+- Streak system  
+- Four themes including dark mode  
+- Local offline storage (Hive)  
+- Simple, understandable file structure  
+- Fully functional UI + logic  
